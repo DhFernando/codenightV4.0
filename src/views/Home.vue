@@ -12,7 +12,7 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          CodeNight v4.0
+          {{dataFormVueX}}
         </h1>
       </v-col>
   
@@ -25,6 +25,12 @@
     name: 'HelloWorld',
 
     data: () => ({
+
     }),
+    computed: {
+      dataFormVueX(){
+        return this.$store.getters.data
+      }
+    },
   }
 </script>
