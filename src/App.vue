@@ -12,6 +12,8 @@
 
 <script>
 
+//for initial admit
+
 // import {fb} from './firebase' <-- just a demo for import firebase
 
 export default {
