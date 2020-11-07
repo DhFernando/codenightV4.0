@@ -1,9 +1,14 @@
 const state = {
-    data : "Code Night v4.0"
+    user : {
+      userName : "codenight4",
+      password : "CIScodenight4"
+    },
+    login : false
   };
 
   const getters = {
-    data:(state) => { return state.data },
+    user:(state) => { return state.user }, 
+    login:(state) => { return state.login }, 
   };
   
   const actions = {
