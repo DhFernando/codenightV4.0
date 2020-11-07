@@ -56,12 +56,11 @@
         console.log(this.formData)
       }
     },
-    created : function(){
-        this.Teams = this.$store.getters.Teams
-    },
-
+     
     computed :{
-        
+     Teams(){
+       return this.$store.getters.Teams
+     }
     }
   }
 </script>

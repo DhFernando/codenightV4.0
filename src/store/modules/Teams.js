@@ -9,16 +9,17 @@ const state = {
   };
   
   const actions = {
-    // submitData:(contex , fmDt) =>{
-    //     contex.commit('submitData' , fmDt )
-    // }
+    submitTeam:(contex , fmDt) =>{
+        contex.commit('setTeam' , fmDt )
+    }
   };
   
   const mutations = { 
 
-    // submitData: (state, retrevedData )=>{
-    //     state.data = retrevedData
-    //   },
+    setTeam: (state, fmDt )=>{
+        state.Teams.push(fmDt)
+      },
+
   };
 
   export default{

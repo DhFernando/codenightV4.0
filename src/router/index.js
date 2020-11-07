@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Registration from '../components/Registration.vue'
-import RegTeams from '../components/RegTeams.vue'
+import RegTeams from '../views/RegTeams.vue'
 
 Vue.use(VueRouter)
 
@@ -15,7 +15,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   { path: '/registration', name: 'Registration', component: Registration },
-  { path: '/regTeams' , name:"RegTeams" , component : RegTeams }
+  { path: '/regTeams' , name:"RegTeams" , component : RegTeams },
+  
 ] 
 
 const router = new VueRouter({

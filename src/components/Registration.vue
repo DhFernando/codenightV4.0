@@ -3,6 +3,7 @@
      <v-row>
        <v-col cols="12">
          <h2><i>R</i>egistration</h2>
+     
        </v-col>
      </v-row>
      <v-row>
@@ -15,7 +16,7 @@
        </v-col>
      </v-row>
      <v-row>
-       <v-col cols="12">
+       <v-col cols="12" >
           <v-form ref="form" lazy-validation >  
             <v-text-field v-model="formData.TeamName" :counter="10"  label="TeamName" required ></v-text-field>
 
@@ -47,7 +48,9 @@
     }),
     methods : {
       register : function() {
+        alert("Registration Completed .... !! Happy Coding")
         console.log(this.formData)
+        this.$store.dispatch("submitTeam" , this.formData)
       }
     },
 
