@@ -1,5 +1,5 @@
 {
-  "name": "codenightv4",
+  "name": "codenight",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,26 +9,21 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "firebase": "^7.2.2",
-    "moment": "^2.24.0",
-    "popper.js": "^1.16.0",
-    "poppers": "^0.1.2",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.7",
-    "vuetify": "^2.3.16",
+    "vue-router": "^3.4.9",
+    "vuetify": "^2.2.11",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.0",
-    "@vue/cli-plugin-eslint": "^4.5.0",
-    "@vue/cli-service": "^4.5.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
-    "deepmerge": "^4.2.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.29.0",
-    "sass-loader": "^8.0.2",
-    "vue-cli-plugin-vuetify": "^2.0.7",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "~2.0.7",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.3.0"
   },
@@ -50,5 +45,7 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "_id": "codenight@0.1.0",
+  "readme": "ERROR: No README data found!"
 }
