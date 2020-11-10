@@ -1,20 +1,20 @@
 const state = {
     data : "Code Night v4.0",
-    Teams : [  ],
-    AdminLogin : false,
+    Teams : [  ], 
     AdminCredentiols : {
       password : "codenight@123",
       userName : "CIS_Admin"
     },
-    dialog: false
+    dialog: false,
+    login : false
   };
 
   const getters = {
     data:(state) => { return state.data },
     Teams:(state) => { return state.Teams },
-    AdminLogin:(state) => { return state.AdminLogin },
     AdminCredentiols:(state) => { return state.AdminCredentiols },
     dialog:(state) => { return state.dialog },
+    login:(state) => { return state.login },
   };
   
   const actions = {
@@ -27,9 +27,16 @@ const state = {
     closeDialog:(contex )=>{
       contex.commit('SetDialogClose' )
     },
-    Login:(contex)=>{
-      contex.commit('SetLogin')
+    userLogin:(contex)=>{
+      localStorage.setItem("codeNigntLogin", true)
+      contex.commit('SetLoginTrue' )
+    },
+    userLogout:(contex)=>{
+      localStorage.removeItem("codeNigntLogin")
+      contex.commit('SetLoginFalse' )
     }
+    
+    
   };
   
   const mutations = { 
@@ -43,9 +50,13 @@ const state = {
       SetDialogClose: (state  )=>{
         state.dialog = false
       },
-      SetLogin: (state)=>{
-        state.AdminLogin = !false
+      SetLoginTrue: (state  )=>{
+        state.login = true
       },
+      SetLoginFalse: (state  )=>{
+        state.login = false
+      },
+      
 
   };
 

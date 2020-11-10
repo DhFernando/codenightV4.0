@@ -24,7 +24,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" text @click="login" > Login </v-btn>
-          <v-btn color="blue darken-1" text @click="closeDialog"  >  Save </v-btn>
+          <v-btn color="blue darken-1" text @click="closeDialog"  >  Close </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -47,8 +47,8 @@
       },
       login(){
         if(this.AdminCredentiols.password == this.$store.getters.AdminCredentiols.password &&
-        this.AdminCredentiols.userName == this.$store.getters.AdminCredentiols.userName){
-             this.$store.dispatch("Login" )
+        this.AdminCredentiols.userName == this.$store.getters.AdminCredentiols.userName){ 
+              this.$store.dispatch("userLogin")
              this.closeDialog()
         }
       }

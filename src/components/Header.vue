@@ -49,7 +49,8 @@
                 <v-tab to="/about" > About</v-tab>
                 <v-tab to="/registration">Registration</v-tab>
                 <v-tab v-if="AdminLogin" to="/regTeams"> Registered Teams</v-tab>
-                <v-tab  @click="OpenDialog"> Admins</v-tab>
+                <v-tab  v-if="AdminLogin == false"  @click="OpenDialog"> Admins Login</v-tab>
+                <v-tab  v-if="AdminLogin == true"  @click="Logout"> Admins Logout</v-tab>
               </v-tabs>
             </template>
           </v-app-bar>
@@ -66,13 +67,24 @@ export default {
   data: () => ({
     //
   }),
+  beforeCreate(){
+    if(localStorage.getItem("codeNigntLogin") != null){ 
+      this.$store.dispatch("userLogin")
+    }
+  },
   methods:{
       OpenDialog(){
           this.$store.dispatch("OpenDialog")
+      },
+      Logout(){
+        this.$store.dispatch("userLogout")
+        this.$router.push("/")
       }
   },
   computed:{
-      AdminLogin(){ return this.$store.getters.AdminLogin }
+      AdminLogin(){ 
+        return this.$store.getters.login
+      }
   }
 };
 </script>
