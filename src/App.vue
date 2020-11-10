@@ -8,6 +8,9 @@
   </v-app>
 </template>
 
+// import {fb} from './firebase' <-- just a demo for import firebase
+
+
 <script> 
 import Header from '@/components/Header'
 import AdminLogIn from '@/views/AdminLogIn'
