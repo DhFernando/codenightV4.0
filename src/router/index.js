@@ -4,8 +4,7 @@ import Home from '../views/Home.vue'
 import Registration from '../components/Registration.vue'
 import RegTeams from '../views/RegTeams.vue'
 
-Vue.use(VueRouter)
-
+Vue.use(VueRouter) 
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/about', name: 'About',
@@ -15,7 +14,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   { path: '/registration', name: 'Registration', component: Registration },
-  { path: '/regTeams' , name:"RegTeams" , component : RegTeams },
+ 
+  { path: '/regTeams' , name:"RegTeams" , component :  RegTeams  },
   
 ] 
 
