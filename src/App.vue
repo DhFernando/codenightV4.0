@@ -8,14 +8,17 @@
   </v-app>
 </template>
 
-// import {fb} from './firebase' <-- just a demo for import firebase
+
 
 
 <script> 
+
+// import {fb} from './firebase' <-- just a demo for import firebase
+
 import Header from '@/components/Header'
 import AdminLogIn from '@/views/AdminLogIn'
 export default {
-  name: 'App',
+  name: 'pp',
 
   components: {
       Header , AdminLogIn

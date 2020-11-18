@@ -41,7 +41,17 @@
           <v-row class="">
              <v-container class=" ">
                <v-card class="pa-5">
-                  {{SelectedTeam}}
+                  <v-row v-if="SelectedTeam != null">
+                    <v-col cols="12">
+                      <v-row>
+                        {{SelectedTeam}}
+                        {{SelectedTeam.TeamName}}
+                      </v-row>
+                      <v-row>
+                        {{SelectedTeam.TeamName}}
+                      </v-row>
+                    </v-col>
+                  </v-row>
                </v-card>
               </v-container>
           </v-row>
