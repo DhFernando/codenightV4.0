@@ -2,7 +2,7 @@
   <v-container>
      <v-row>
        <v-col cols="12">
-         <h2><i>R</i>egistration</h2>
+         <h2><i class="mr-1">R</i>egistration</h2>
      
        </v-col>
      </v-row>
@@ -26,18 +26,18 @@
 
             <v-row>
               <v-col cols="6">
-                <v-text-field v-model="formData.member1"  label="Member 1" required ></v-text-field>
+                <v-text-field v-model="formData.member1"  label="Member 1 Name" required ></v-text-field>
               </v-col>
               <v-col cols="6">
-                <v-text-field v-model="formData.member2"  label="Member 2" required ></v-text-field>
+                <v-text-field v-model="formData.member2"  label="Member 2 Name" required ></v-text-field>
               </v-col> 
             </v-row> 
             <v-row> 
               <v-col cols="6">
-                <v-text-field v-model="formData.member3"  label="Member 3" required ></v-text-field> 
+                <v-text-field v-model="formData.member3"  label="Member 3 Name" required ></v-text-field> 
               </v-col>
               <v-col cols="6"> 
-                <v-text-field v-model="formData.member4"  label="Member 4" required ></v-text-field>
+                <v-text-field v-model="formData.member4"  label="Member 4 Name" required ></v-text-field>
               </v-col>
             </v-row> 
 
@@ -74,11 +74,11 @@
               <v-row > <v-col cols="12" class="white--text grey darken-3"> <b>Leader informations</b> </v-col> </v-row>
               <v-row>
                 <v-col cols="6">
-                  E-Mail : {{ formData.LeaderName }} 
+                  E-Mail : {{ formData.LeaderEmail }} 
                 </v-col>
 
                 <v-col cols="6"> 
-                  Name : {{ formData.LeaderEmail }}
+                  Name : {{ formData.LeaderName }}
                 </v-col>
               </v-row>
               
