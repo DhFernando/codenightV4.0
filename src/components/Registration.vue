@@ -135,7 +135,8 @@ import {fb} from '../firebaseConfig'
                   member1 :this.formData.member1,
                   member2 : this.formData.member2,
                   member3:this.formData.member3 ,
-                  member4:this.formData.member4 
+                  member4:this.formData.member4 ,
+                  read : false
                 })
         .then(function() {
             console.log("Document successfully written!");

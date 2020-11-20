@@ -69,11 +69,30 @@ const state = {
       SetFetchedTeams: (state ,  snapshot )=>{
         snapshot.docChanges().forEach(function(change){
           if(change.type ==="added"){
-            state.teamsArray.push(change.doc.data());
+            state.teamsArray.push({
+              id : change.doc.id,
+              data : change.doc.data()
+            });
           }if(change.type ==="modified"){
-            state.teamsArray.push(change.doc.data());
+  
+            state.teamsArray.forEach(element => {
+              if(element.id == change.doc.id){
+                element.data = change.doc.data()
+              }
+            });
+
           }if(change.type ==="removed"){
-            state.teamsArray.push(change.doc.data());
+            // state.teamsArray.push({
+            //   id : change.doc.id,
+            //   data : change.doc.data()
+            // });
+
+            state.teamsArray.forEach((element , index ) => {
+              if(element.id == change.doc.id){ 
+                 state.teamsArray.splice(index, 1);
+              }
+            });
+
           }}); 
       },
       
