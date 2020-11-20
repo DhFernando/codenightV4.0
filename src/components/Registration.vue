@@ -102,6 +102,8 @@
 </template>
 
 <script>
+
+import {fb} from '../firebaseConfig'
   export default {
     name: 'Header',
 
@@ -123,7 +125,26 @@
       register : function() {
         alert("Registration Completed .... !! Happy Coding")
         console.log(this.formData)
-        this.$store.dispatch("submitTeam" , this.formData)
+
+        fb.firestore().collection('Teams').doc( (this.formData.year).toString() )
+                .collection('info').add({
+                  year : this.formData.year,
+                  TeamName : this.formData.TeamName,
+                  LeaderEmail : this.formData.LeaderEmail,
+                  LeaderName :this.formData.LeaderName,
+                  member1 :this.formData.member1,
+                  member2 : this.formData.member2,
+                  member3:this.formData.member3 ,
+                  member4:this.formData.member4 
+                })
+        .then(function() {
+            console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+
+
       }
     },
 

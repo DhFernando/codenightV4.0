@@ -11,7 +11,7 @@
               </v-row>
             </v-col>
             <v-col cols="8">
-              <v-select v-model="SelectedYear"  :items="Year"
+              <v-select v-model="SelectedYear"  :items="Year" 
                 label="Year"
                 required
               ></v-select> 
@@ -57,6 +57,7 @@
           </v-row>
         </v-col>
       </v-row>
+     
     </v-col>
   </v-row>
 </template>
@@ -74,16 +75,19 @@
     beforeCreate(){
       if(localStorage.getItem("codeNigntLogin") === null){ this.$router.push("/") }
     },
+    created(){
+     this.$store.dispatch('fetchTeamsFB')
+    },
     computed:{
       Teams(){ 
         if( this.SelectedYear === null || this.SelectedYear === "All Years"  ){
-            return this.$store.getters.Teams
+            return this.$store.getters.teamsArray
         }else if(this.SelectedYear === "First (1st) Year"){
-            return this.$store.getters.Teams.filter( el => el.year === 1 )
+            return this.$store.getters.teamsArray.filter( el => el.year === 1 )
         }else if(this.SelectedYear === "Second ( 2nd ) Year"){
-            return this.$store.getters.Teams.filter( el => el.year === 2 )
+            return this.$store.getters.teamsArray.filter( el => el.year === 2 )
         }else if(this.SelectedYear === "Third ( 3rd ) Year"){
-            return this.$store.getters.Teams.filter( el => el.year === 3 )
+            return this.$store.getters.teamsArray.filter( el => el.year === 3 )
         }else{
           return this.$store.getters.Teams
         }

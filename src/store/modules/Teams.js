@@ -1,6 +1,9 @@
+import { fb } from '../../firebaseConfig' 
+
 const state = {
     data : "Code Night v4.0",
-    Teams : [  ], 
+
+    teamsArray : [],
     AdminCredentiols : {
       password : "codenight@123",
       userName : "CIS_Admin"
@@ -11,16 +14,14 @@ const state = {
 
   const getters = {
     data:(state) => { return state.data },
-    Teams:(state) => { return state.Teams },
     AdminCredentiols:(state) => { return state.AdminCredentiols },
     dialog:(state) => { return state.dialog },
     login:(state) => { return state.login },
+    teamsArray:(state) => { return state.teamsArray },
   };
   
   const actions = {
-    submitTeam:(contex , fmDt) =>{
-        contex.commit('setTeam' , fmDt )
-    },
+
     OpenDialog:(contex ) =>{
       contex.commit('SetOpenDialog'   )
     },
@@ -34,6 +35,18 @@ const state = {
     userLogout:(contex)=>{
       localStorage.removeItem("codeNigntLogin")
       contex.commit('SetLoginFalse' )
+    },
+
+    fetchTeamsFB:(contex )=>{
+      state.teamsArray = []
+      
+      for (let index = 1; index <= 3; index++) {
+        fb.firestore().collection('Teams').doc(index.toString()).collection('info').onSnapshot( async(snapshot) =>
+          {
+            await contex.commit('SetFetchedTeams' , snapshot )
+          });
+      }
+      
     }
     
     
@@ -41,9 +54,6 @@ const state = {
   
   const mutations = { 
 
-    setTeam: (state, fmDt )=>{
-        state.Teams.push(fmDt)
-      },
       SetOpenDialog: (state  )=>{
         state.dialog = true
       },
@@ -55,6 +65,16 @@ const state = {
       },
       SetLoginFalse: (state  )=>{
         state.login = false
+      },
+      SetFetchedTeams: (state ,  snapshot )=>{
+        snapshot.docChanges().forEach(function(change){
+          if(change.type ==="added"){
+            state.teamsArray.push(change.doc.data());
+          }if(change.type ==="modified"){
+            state.teamsArray.push(change.doc.data());
+          }if(change.type ==="removed"){
+            state.teamsArray.push(change.doc.data());
+          }}); 
       },
       
 
