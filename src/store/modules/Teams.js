@@ -32,9 +32,9 @@ const state = {
       localStorage.setItem("codeNigntLogin", true)
       contex.commit('SetLoginTrue' )
     },
-    userLogout:(contex)=>{
+    userLogout:()=>{
       localStorage.removeItem("codeNigntLogin")
-      contex.commit('SetLoginFalse' )
+        
     },
 
     fetchTeamsFB:(contex )=>{

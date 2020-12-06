@@ -2,21 +2,20 @@
   <v-container>
      <v-row>
        <v-col cols="12">
-         <h2><i class="mr-1">R</i>egistration</h2>
-     
+         <h2 v-if="Size == 'xs' " class="text-center" ><i class="mr-1">R</i>egistration {{ Size }}</h2>
+         <h2 v-else class="text-left" ><i class="mr-1">R</i>egistration {{ Size }}</h2>
        </v-col>
      </v-row>
      <v-row>
        <v-col cols="12">
-         <v-tabs>
-            <v-tab @click="formData.year = 1">First Year [ 1st Year ]</v-tab>
+         <v-tabs >
             <v-tab @click="formData.year = 2">Second Year [ 2nd Year ]</v-tab>
             <v-tab @click="formData.year = 3">Third Year [ 3rd Year ]</v-tab>
           </v-tabs>
        </v-col>
      </v-row>
      <v-row>
-       <v-col cols="6" class="px-9" >
+       <v-col cols="12"   md="6" lg="6" class="px-9" >
           <v-form ref="form" lazy-validation >  
             <v-text-field v-model="formData.TeamName" :counter="10"  label="TeamName" required ></v-text-field>
 
@@ -25,18 +24,18 @@
             <v-text-field v-model="formData.LeaderName"  label="Leader's Name" required ></v-text-field> 
 
             <v-row>
-              <v-col cols="6">
+              <v-col cols="12" md="6" lg="6">
                 <v-text-field v-model="formData.member1"  label="Member 1 Name" required ></v-text-field>
               </v-col>
-              <v-col cols="6">
+              <v-col cols="12" md="6" lg="6">
                 <v-text-field v-model="formData.member2"  label="Member 2 Name" required ></v-text-field>
               </v-col> 
             </v-row> 
             <v-row> 
-              <v-col cols="6">
+              <v-col cols="12" md="6" lg="6">
                 <v-text-field v-model="formData.member3"  label="Member 3 Name" required ></v-text-field> 
               </v-col>
-              <v-col cols="6"> 
+              <v-col cols="12" md="6" lg="6"> 
                 <v-text-field v-model="formData.member4"  label="Member 4 Name" required ></v-text-field>
               </v-col>
             </v-row> 
@@ -48,7 +47,7 @@
             </v-btn>
           </v-form>
        </v-col>
-       <v-col class="pa-9" cols="6">
+       <v-col class="pa-9" cols="12" md="6" lg="6" >
           <v-row>
             <v-col cols="12">
                Preview 
@@ -73,11 +72,11 @@
             <v-col cols="12" class="px-9">
               <v-row > <v-col cols="12" class="white--text grey darken-3"> <b>Leader informations</b> </v-col> </v-row>
               <v-row>
-                <v-col cols="6">
+                <v-col cols="12" md="6" lg="6">
                   E-Mail : {{ formData.LeaderEmail }} 
                 </v-col>
 
-                <v-col cols="6"> 
+                <v-col cols="12" md="6" lg="6"> 
                   Name : {{ formData.LeaderName }}
                 </v-col>
               </v-row>
@@ -88,10 +87,10 @@
             <v-col cols="12" class="px-9">
               <v-row> <v-col cols="12"  class="white--text grey darken-3" > <b>Members</b> </v-col> </v-row>
               <v-row>
-                <v-col cols="6"> {{ formData.member1 }} </v-col>
-                <v-col cols="6"> {{ formData.member2 }} </v-col>
-                <v-col cols="6"> {{ formData.member3 }} </v-col>
-                <v-col cols="6"> {{ formData.member4 }} </v-col>
+                <v-col cols="12" md="6" lg="6"> {{ formData.member1 }} </v-col>
+                <v-col cols="12" md="6" lg="6"> {{ formData.member2 }} </v-col>
+                <v-col cols="12" md="6" lg="6"> {{ formData.member3 }} </v-col>
+                <v-col cols="12" md="6" lg="6"> {{ formData.member4 }} </v-col>
               </v-row>
             </v-col>
           </v-row>
@@ -124,7 +123,6 @@ import {fb} from '../firebaseConfig'
     methods : {
       register : function() {
         alert("Registration Completed .... !! Happy Coding")
-        console.log(this.formData)
 
         fb.firestore().collection('Teams').doc( (this.formData.year).toString() )
                 .collection('info').add({
@@ -150,7 +148,9 @@ import {fb} from '../firebaseConfig'
     },
 
     computed :{
-     
+     Size(){
+        return this.$vuetify.breakpoint.name
+      }
     }
   }
 </script>

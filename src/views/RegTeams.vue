@@ -1,8 +1,8 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12">
+    <v-col cols="12" >
       <v-row>
-        <v-col cols="5" class="" >
+        <v-col cols="5"  class="" >
           <v-row>
             <v-col cols="4">
               <v-row>
@@ -35,7 +35,7 @@
             </v-col>  
           </v-row>
         </v-col>
-        <v-col cols="7" >
+        <v-col cols="7" md="12" >
           <v-row class="">
              <v-container class=" ">
                <v-card class="pa-5">
@@ -122,6 +122,10 @@ import { fb } from '../firebaseConfig'
         }
         
        }
-    }
+    },
+
+    Size(){
+        return this.$vuetify.breakpoint.name
+      }
   }
 </script>
